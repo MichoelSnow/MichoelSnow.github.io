@@ -1,19 +1,169 @@
----
-layout: main
----
-{% for post in paginator.posts %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
-    <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
-  </div>
-</article>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/favicon.png">
 
-{% include pagination.html %}
+    <title>Julia Signell</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <img src=cover.png style="display:none;">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://jsignell.github.io">Julia Signell</a>
+        </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://github.com/jsignell">Github</a></li>
+              <li><a href="https://www.linkedin.com/in/julia-signell-8a948a88">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!--/.navbar-collapse -->
+    </nav>
+
+    <div class="content">
+      <div class="jumbotron">
+        <div class="container">
+          <h1>
+          </br>
+          </br>
+          </h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="col">
+          <div class="row-md-2">
+            <p>
+            I have worked in the scientific Python ecosystem for the last five years as
+            an environmental researcher, an open source contributor, and on both the frontend and
+            backend of a data science platform product team. I am passionate about finding
+            creative ways to enhance understanding of the physical world. Below are some of
+            the projects that I worked on as part of the hydrometeorology group
+            at Princeton University and in my current role on the HoloViz team at Anaconda.
+            </p>
+          </div>
+          <div class="row-md-2">
+            <div class="row" >
+              <div class="col-md-4">
+                <div class="project">
+                  <a href="https://jsignell.github.io/heat_and_trees">
+                    <h3>Heat and Trees</h3>
+                    <p>An interactive dashboard for exploring the relationship between
+                      surface temperature and street trees. Based on the Ken Steif's work
+                      summarized on http://urbanspatialanalysis.com.</p>
+                    <img src='assets/heat_and_trees.png' width=100% ></img>
+                  </a>
+                </div>
+                <div class="project">
+                  <a href="https://github.com/jsignell/pydata_dc_2018">
+                    <h3>Bird Migration</h3>
+                    <p>Exploring bird migration patterns using HoloViz tools.</p>
+                    <img async src='assets/birds.gif' width=100% ></img>
+                  </a>
+                </div>
+                <div class="project">
+                  <a href="https://github.com/jsignell/radar-tools#readme">
+                    <h3>Rainfall</h3>
+                    <p>Exploring the relationship between radar-measured rainfall and lightning strikes.</p>
+                    <img async src='assets/rainfall.png' width=100% ></img>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="project">
+                  <a href="https://holoviz.org/tutorial/index.html">
+                    <h3>HoloViz Tutorial</h3>
+                    <p>Material presented at SciPy 2019 for the HoloViz tutorial. Using earthquake
+                       data to explore plotting and dashboard creation.</p>
+                    <img async src='assets/holoviz.png' width=100%></img>
+                  </a>
+                </div>
+                <div class="project">
+                  <a href="https://jsignell.github.io/lightning-tools">
+                    <h3>Lightning</h3>
+                    <p>Investigating the timing and spatial distribution of lightning strikes in the Southwest.</p>
+                    <img async src='assets/lightning.png' width=100%></img>
+                  </a>
+                </div>
+                <div class="project">
+                  <a href="https://github.com/jsignell/intro-to-netcdf#readme">
+                    <h3>Introduction to NetCDF files</h3>
+                    <p>Material for an introduction to data analysis targetted at undergraduates.
+                       Demonstrates a real world environmental data pipeline and initial
+                       analyses using Python, R, and Matlab. This course was delivered to engineering
+                       students as part of Jim Smith's hydrology course at Princeton in the Spring of 2016.</p>
+                    <img async src='assets/intro-to-netcdf.png' width=100%></img>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="project">
+                  <a href="https://pyviz.org/tools.html">
+                    <h3>PyViz Website</h3>
+                    <p>Website comparing all the different visualization tools availble
+                       in the scientific Python ecosystem.</p>
+                    <img src='assets/pyviz.png' width=100% ></img>
+                  </a>
+                </div>
+                <div class="project">
+                  <a href="https://jsignell.github.io/tic-tac-toe">
+                    <h3>Tic-Tac-Toe</h3>
+                    <p>A static version of a tic-tac-toe game that I designed.</p>
+                    <img src='assets/tic_tac_toe.png' width=100% ></img>
+                  </a>
+                </div>
+                <div class="project">
+                  <a href="http://hydrometeorology.princeton.edu/">
+                    <h3>Hyrdometeorology Website</h3>
+                    <p>Research group website - highlighting recent data and key analyses</p>
+                    <img async src='assets/hydromet_website.png' width=100% ></img>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+    <hr>
+      <p>&copy; 2018 Julia Signell</p>
+    </footer>
+  </body>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+</html>
